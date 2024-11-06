@@ -6,7 +6,6 @@
 #Hint1: This method will help you: https://www.w3schools.com/python/ref_file_readlines.asp
     #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
         #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
-
 def get_letter_file():
     with open('mail merge/input/letters/starting_letter.docx', 'r', errors= 'ignore') as file:
         letter = file.read()
@@ -21,8 +20,13 @@ def get_each_name():
     invited_names = get_names_file()
     list_of_names = []
     for i in invited_names:
-        list_of_names.append(i)
+        if "\n" in i:
+            i = i[:len(i)-1] + "," + i[len(i)-1:]
+            list_of_names.append(i)
+        else:
+            list_of_names.append(i)
     return list_of_names
+print(get_each_name())
 
 def make_letters():
     list_of_names = get_each_name()
