@@ -44,7 +44,7 @@ def save_letters():
     letters = make_letters()
     file_name = "letter"
     for i in range(len(letters)):
-        f = open("ReadyToSend/"+file_name + str(i)+".txt", "w")
+        f = open("ReadyToSend/"+file_name + str(i)+".docx", "w")
         f.write(letters[i])
 
 if __name__=='__main__':
