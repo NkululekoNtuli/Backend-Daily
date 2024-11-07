@@ -7,14 +7,20 @@
     #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
         #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 def get_letter_file():
-    with open('mail merge/input/letters/starting_letter.docx', 'r', errors= 'ignore') as file:
-        letter = file.read()
-    return letter
+    try:
+        with open('mail merge/Input/letters/starting_letter.docx', 'r', errors= 'ignore') as file:
+            letter = file.read()
+        return letter
+    except:
+        print("Error!")
 
 def get_names_file():
-    with open('mail merge/input/Names/inivited_names.txt', 'r', errors='ignore') as file:
-        invited_names = file.readlines()
-        return invited_names
+    try:
+        with open('mail merge/Input/Names/inivited_names.txt', 'r', errors='ignore') as file:
+            invited_names = file.readlines()
+            return invited_names
+    except:
+        print("Error!")
 
 def get_each_name():
     invited_names = get_names_file()
@@ -26,7 +32,6 @@ def get_each_name():
         else:
             list_of_names.append(i)
     return list_of_names
-print(get_each_name())
 
 def make_letters():
     list_of_names = get_each_name()
